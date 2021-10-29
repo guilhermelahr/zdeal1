@@ -1,0 +1,97 @@
+<mvc:View controllerName="com.wb.zdeal1.zdeal1.controller.Object" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic"
+	xmlns:form="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:layout="sap.ui.layout">
+	<semantic:SemanticPage id="page" headerPinnable="false" toggleHeaderOnTitleClick="false" busy="{objectView>/busy}"
+		busyIndicatorDelay="{objectView>/delay}" showFooter="true">
+		<semantic:titleHeading>
+			<Title text="Deal {document}" level="H2"/>
+		</semantic:titleHeading>
+		<semantic:headerContent>
+			<layout:HorizontalLayout allowWrapping="true">
+				<layout:VerticalLayout class="sapUiMediumMarginEnd">
+					<ObjectAttribute title="Draft" text="{objectView>/draft}"/>
+				</layout:VerticalLayout>
+			</layout:HorizontalLayout>
+		</semantic:headerContent>
+		<semantic:content>
+			<Wizard id="dealWizard" complete="completedHandler" height="auto" enableBranching="true">
+				<WizardStep id="HeaderInfoStep" title="Header Information" activate="onActivate" complete="OptionalInfoStep" nextStep="OptionalInfoStep">
+					<MessageStrip class="sapUiSmallMarginBottom" text="Step 1" showIcon="true"/>
+					<form:SimpleForm editable="true">
+						<Label text="Field 1" required="true"/>
+						<Input valueStateText="Enter digits" id="idField1" placeholder="Enter digits"
+							value="{field1}" editable="{=${objectView>/draft}===true ? true : false}" liveChange="onLiveChange" maxLength="20"/>
+						<Label text="Field 2" required="true"/>
+						<Input valueStateText="Enter digits" id="idField2" placeholder="Enter digits" value="{field2}"
+							editable="{=${objectView>/draft}===true ? true : false}" maxLength="20" liveChange="onLiveChange"/>
+						<Label text="Field 3" required="true"/>
+						<Input valueStateText="Enter digits" id="idField3" placeholder="Enter digits" value="{field3}"
+							editable="{=${objectView>/draft}===true ? true : false}" maxLength="20" liveChange="onLiveChange"/>
+					</form:SimpleForm>
+				</WizardStep>
+				<WizardStep id="OptionalInfoStep" title="Additional Information" activate="onActivate">
+					<MessageStrip class="sapUiSmallMarginBottom" text="Step 2" showIcon="true"/>
+					<Table id="table" width="auto" items="{path:'to_item'}" mode="SingleSelectLeft">
+						<headerToolbar>
+							<OverflowToolbar>
+								<Title id="tableHeader" text="Item" level="H3"/>
+								<ToolbarSpacer/>
+								<SearchField id="searchField" search=".onSearch">
+									<layoutData>
+										<OverflowToolbarLayoutData maxWidth="200px" priority="NeverOverflow"/>
+									</layoutData>
+								</SearchField>
+								<Button text="Create" type="Transparent" press="onCreate" visible="{=${objectView>/draft}===false ? false : true}"/>
+								<Button text="Delete" type="Transparent" press="onDelete" visible="{=${objectView>/draft}===false ? false : true}"/>
+							</OverflowToolbar>
+						</headerToolbar>
+						<columns>
+							<Column>
+								<Text text="Item"/>
+							</Column>
+							<Column>
+								<Text text="Field 1"/>
+							</Column>
+							<Column>
+								<Text text="Field 2"/>
+							</Column>
+							<Column>
+								<Text text="Field 3"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier title="{item}"/>
+									<Input value="{field1}" editable="{=${objectView>/draft}===true ? true : false}" maxLength="20" liveChange="onLiveChange"/>
+									<Input value="{field2}" editable="{=${objectView>/draft}===true ? true : false}" maxLength="20" liveChange="onLiveChange"/>
+									<Input value="{field3}" editable="{=${objectView>/draft}===true ? true : false}" maxLength="20" liveChange="onLiveChange"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</WizardStep>
+			</Wizard>
+		</semantic:content>
+		<semantic:headerContent>
+			<ObjectNumber/>
+		</semantic:headerContent>
+		<semantic:titleMainAction>
+			<semantic:TitleMainAction text="Edit" press="onEdit" visible="{=${objectView>/draft}===true ? false : true}"/>
+		</semantic:titleMainAction>
+		<semantic:draftIndicator>
+			<DraftIndicator id="idDraftInd" state="Clear"/>
+		</semantic:draftIndicator>
+		<semantic:footerMainAction>
+			<semantic:FooterMainAction text="Submit" press="onSubmit" visible="{=${objectView>/draft}===false ? false : true}"/>
+		</semantic:footerMainAction>
+		<semantic:footerCustomActions>
+			<Button text="Save" press="onSave" visible="{=${objectView>/draft}===false ? false : true}"/>
+		</semantic:footerCustomActions>
+		<semantic:footerCustomActions>
+			<Button text="Cancel" press="handleCancelPopover" visible="{=${objectView>/draft}===false ? false : true}"/>
+		</semantic:footerCustomActions>
+		<semantic:messagesIndicator>
+			<semantic:MessagesIndicator press="onMessagesButtonPress"/>
+		</semantic:messagesIndicator>
+	</semantic:SemanticPage>
+</mvc:View>

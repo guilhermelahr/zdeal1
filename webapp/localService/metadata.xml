@@ -1,0 +1,103 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZGUI_TEST1_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="I_DraftAdministrativeDataType" sap:label="Draft Administrative Data" sap:content-version="1">
+				<Key><PropertyRef Name="DraftUUID"/></Key><Property Name="DraftUUID" Type="Edm.Guid" Nullable="false" sap:label="Draft (Technical ID)"/><Property Name="DraftEntityType" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Draft Entity ID"/><Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Created On"/><Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="CreatedByUserDescription"
+					sap:label="Draft Created By"/><Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Last Changed On"/><Property Name="LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="LastChangedByUserDescription"
+					sap:label="Draft Last Changed By"/><Property Name="DraftAccessType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Draft Access Type"/><Property Name="ProcessingStartDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft In Process Since"/><Property Name="InProcessByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="InProcessByUserDescription"
+					sap:label="Draft In Process By"/><Property Name="DraftIsKeptByUser" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Draft Is Kept By User"/><Property Name="EnqueueStartDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Locked Since"/><Property Name="DraftIsCreatedByMe" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Draft Created By Me"/><Property Name="DraftIsLastChangedByMe" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Draft Last Changed By Me"/><Property Name="DraftIsProcessedByMe" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Draft In Process By Me"/><Property Name="CreatedByUserDescription" Type="Edm.String" MaxLength="80" sap:label="Draft Created By (Description)"/><Property Name="LastChangedByUserDescription" Type="Edm.String" MaxLength="80" sap:label="Draft Last Changed By (Description)"/><Property Name="InProcessByUserDescription" Type="Edm.String" MaxLength="80" sap:label="Draft In Process By (Description)"/></EntityType>
+			<EntityType Name="ZC_Gui_HeaderTPType" sap:label="Header" sap:content-version="1">
+				<Key><PropertyRef Name="uuid"/><PropertyRef Name="IsActiveEntity"/></Key><Property Name="Activation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Edit_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="Preparation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Validation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="uuid" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:quickinfo="EPM: Generic Node Key" sap:creatable="false"
+					sap:updatable="false"/><Property Name="document" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Document" sap:creatable="false"
+					sap:updatable="false"/><Property Name="field1" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase"/><Property Name="field2" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase"/><Property Name="field3" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase"/><Property Name="crea_date_time" Type="Edm.DateTimeOffset" Precision="7" sap:label="Time Stamp"
+					sap:quickinfo="UTC Time Stamp in Long Form (YYYYMMDDhhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/><Property Name="crea_uname" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="User Name" sap:creatable="false"
+					sap:updatable="false"/><Property Name="lchg_date_time" Type="Edm.DateTimeOffset" Precision="7" sap:label="Time Stamp"
+					sap:quickinfo="UTC Time Stamp in Long Form (YYYYMMDDhhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/><Property Name="lchg_uname" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="User Name" sap:creatable="false"
+					sap:updatable="false"/><Property Name="ActiveUUID" Type="Edm.Guid" sap:label="Key"/><Property Name="DraftEntityCreationDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Created On"/><Property Name="DraftEntityLastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Last Changed On"/><Property Name="HasActiveEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Has active" sap:sortable="false"/><Property Name="HasDraftEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Has Draft" sap:sortable="false"/><Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" sap:display-format="UpperCase" sap:label="Is active"
+					sap:sortable="false"/><NavigationProperty Name="DraftAdministrativeData" Relationship="ZGUI_TEST1_SRV.assoc_B309581ECB705A302C4481AEC6021879"
+					FromRole="FromRole_assoc_B309581ECB705A302C4481AEC6021879" ToRole="ToRole_assoc_B309581ECB705A302C4481AEC6021879"/><NavigationProperty Name="SiblingEntity" Relationship="ZGUI_TEST1_SRV.assoc_1DF633673DEE83EB2A5569198A2EEABD"
+					FromRole="FromRole_assoc_1DF633673DEE83EB2A5569198A2EEABD" ToRole="ToRole_assoc_1DF633673DEE83EB2A5569198A2EEABD"/><NavigationProperty Name="to_item" Relationship="ZGUI_TEST1_SRV.assoc_10F693D54729B0E1541EFFBCD31D0FA4"
+					FromRole="FromRole_assoc_10F693D54729B0E1541EFFBCD31D0FA4" ToRole="ToRole_assoc_10F693D54729B0E1541EFFBCD31D0FA4"/></EntityType>
+			<EntityType Name="ZC_Gui_ItemTPType" sap:label="Item" sap:content-version="1">
+				<Key><PropertyRef Name="uuid"/><PropertyRef Name="IsActiveEntity"/></Key><Property Name="Preparation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Validation_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="uuid" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:quickinfo="EPM: Generic Node Key" sap:creatable="false"
+					sap:updatable="false"/><Property Name="parent" Type="Edm.Guid" sap:label="Node Key" sap:quickinfo="EPM: Generic Node Key" sap:creatable="false"
+					sap:updatable="false"/><Property Name="item" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Item" sap:creatable="false"
+					sap:updatable="false"/><Property Name="field1" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase"/><Property Name="field2" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase"/><Property Name="field3" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase"/><Property Name="crea_date_time" Type="Edm.DateTimeOffset" Precision="7" sap:label="Time Stamp"
+					sap:quickinfo="UTC Time Stamp in Long Form (YYYYMMDDhhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/><Property Name="crea_uname" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="User Name" sap:creatable="false"
+					sap:updatable="false"/><Property Name="lchg_date_time" Type="Edm.DateTimeOffset" Precision="7" sap:label="Time Stamp"
+					sap:quickinfo="UTC Time Stamp in Long Form (YYYYMMDDhhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/><Property Name="lchg_uname" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="User Name" sap:creatable="false"
+					sap:updatable="false"/><Property Name="ActiveUUID" Type="Edm.Guid" sap:label="Key"/><Property Name="DraftEntityCreationDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Created On"/><Property Name="DraftEntityLastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Draft Last Changed On"/><Property Name="HasActiveEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Has active" sap:sortable="false"/><Property Name="HasDraftEntity" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Has Draft" sap:sortable="false"/><Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" sap:display-format="UpperCase" sap:label="Is active"
+					sap:sortable="false"/><NavigationProperty Name="DraftAdministrativeData" Relationship="ZGUI_TEST1_SRV.assoc_77FA5BFA9F036CFFE27A45D45E6ED19E"
+					FromRole="FromRole_assoc_77FA5BFA9F036CFFE27A45D45E6ED19E" ToRole="ToRole_assoc_77FA5BFA9F036CFFE27A45D45E6ED19E"/><NavigationProperty Name="SiblingEntity" Relationship="ZGUI_TEST1_SRV.assoc_9B544E883C279C262774768149089C9B"
+					FromRole="FromRole_assoc_9B544E883C279C262774768149089C9B" ToRole="ToRole_assoc_9B544E883C279C262774768149089C9B"/></EntityType>
+			<ComplexType Name="ValidationFunctionResult"><Property Name="IsValid" Type="Edm.Boolean" sap:label="Is valid"/></ComplexType>
+			<Association Name="assoc_1DF633673DEE83EB2A5569198A2EEABD" sap:content-version="1"><End Type="ZGUI_TEST1_SRV.ZC_Gui_HeaderTPType" Multiplicity="1" Role="FromRole_assoc_1DF633673DEE83EB2A5569198A2EEABD"/><End Type="ZGUI_TEST1_SRV.ZC_Gui_HeaderTPType" Multiplicity="0..1" Role="ToRole_assoc_1DF633673DEE83EB2A5569198A2EEABD"/></Association>
+			<Association Name="assoc_10F693D54729B0E1541EFFBCD31D0FA4" sap:content-version="1"><End Type="ZGUI_TEST1_SRV.ZC_Gui_HeaderTPType" Multiplicity="1" Role="FromRole_assoc_10F693D54729B0E1541EFFBCD31D0FA4"/><End Type="ZGUI_TEST1_SRV.ZC_Gui_ItemTPType" Multiplicity="*" Role="ToRole_assoc_10F693D54729B0E1541EFFBCD31D0FA4"/></Association>
+			<Association Name="assoc_B309581ECB705A302C4481AEC6021879" sap:content-version="1"><End Type="ZGUI_TEST1_SRV.ZC_Gui_HeaderTPType" Multiplicity="1" Role="FromRole_assoc_B309581ECB705A302C4481AEC6021879"/><End Type="ZGUI_TEST1_SRV.I_DraftAdministrativeDataType" Multiplicity="0..1" Role="ToRole_assoc_B309581ECB705A302C4481AEC6021879"/></Association>
+			<Association Name="assoc_77FA5BFA9F036CFFE27A45D45E6ED19E" sap:content-version="1"><End Type="ZGUI_TEST1_SRV.ZC_Gui_ItemTPType" Multiplicity="1" Role="FromRole_assoc_77FA5BFA9F036CFFE27A45D45E6ED19E"/><End Type="ZGUI_TEST1_SRV.I_DraftAdministrativeDataType" Multiplicity="0..1" Role="ToRole_assoc_77FA5BFA9F036CFFE27A45D45E6ED19E"/></Association>
+			<Association Name="assoc_9B544E883C279C262774768149089C9B" sap:content-version="1"><End Type="ZGUI_TEST1_SRV.ZC_Gui_ItemTPType" Multiplicity="1" Role="FromRole_assoc_9B544E883C279C262774768149089C9B"/><End Type="ZGUI_TEST1_SRV.ZC_Gui_ItemTPType" Multiplicity="0..1" Role="ToRole_assoc_9B544E883C279C262774768149089C9B"/></Association>
+			<EntityContainer Name="ZGUI_TEST1_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="I_DraftAdministrativeData" EntityType="ZGUI_TEST1_SRV.I_DraftAdministrativeDataType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="ZC_Gui_HeaderTP" EntityType="ZGUI_TEST1_SRV.ZC_Gui_HeaderTPType" sap:content-version="1"/><EntitySet Name="ZC_Gui_ItemTP" EntityType="ZGUI_TEST1_SRV.ZC_Gui_ItemTPType" sap:content-version="1"/>
+				<AssociationSet Name="assoc_77FA5BFA9F036CFFE27A45D45E6ED19E" Association="ZGUI_TEST1_SRV.assoc_77FA5BFA9F036CFFE27A45D45E6ED19E"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_Gui_ItemTP" Role="FromRole_assoc_77FA5BFA9F036CFFE27A45D45E6ED19E"/><End EntitySet="I_DraftAdministrativeData" Role="ToRole_assoc_77FA5BFA9F036CFFE27A45D45E6ED19E"/></AssociationSet>
+				<AssociationSet Name="assoc_10F693D54729B0E1541EFFBCD31D0FA4" Association="ZGUI_TEST1_SRV.assoc_10F693D54729B0E1541EFFBCD31D0FA4"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_Gui_HeaderTP" Role="FromRole_assoc_10F693D54729B0E1541EFFBCD31D0FA4"/><End EntitySet="ZC_Gui_ItemTP" Role="ToRole_assoc_10F693D54729B0E1541EFFBCD31D0FA4"/></AssociationSet>
+				<AssociationSet Name="assoc_9B544E883C279C262774768149089C9B" Association="ZGUI_TEST1_SRV.assoc_9B544E883C279C262774768149089C9B"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_Gui_ItemTP" Role="FromRole_assoc_9B544E883C279C262774768149089C9B"/><End EntitySet="ZC_Gui_ItemTP" Role="ToRole_assoc_9B544E883C279C262774768149089C9B"/></AssociationSet>
+				<AssociationSet Name="assoc_B309581ECB705A302C4481AEC6021879" Association="ZGUI_TEST1_SRV.assoc_B309581ECB705A302C4481AEC6021879"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_Gui_HeaderTP" Role="FromRole_assoc_B309581ECB705A302C4481AEC6021879"/><End EntitySet="I_DraftAdministrativeData" Role="ToRole_assoc_B309581ECB705A302C4481AEC6021879"/></AssociationSet>
+				<AssociationSet Name="assoc_1DF633673DEE83EB2A5569198A2EEABD" Association="ZGUI_TEST1_SRV.assoc_1DF633673DEE83EB2A5569198A2EEABD"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_Gui_HeaderTP" Role="FromRole_assoc_1DF633673DEE83EB2A5569198A2EEABD"/><End EntitySet="ZC_Gui_HeaderTP" Role="ToRole_assoc_1DF633673DEE83EB2A5569198A2EEABD"/></AssociationSet>
+				<FunctionImport Name="ZC_Gui_HeaderTPActivation" ReturnType="ZGUI_TEST1_SRV.ZC_Gui_HeaderTPType" EntitySet="ZC_Gui_HeaderTP"
+					m:HttpMethod="POST" sap:action-for="ZGUI_TEST1_SRV.ZC_Gui_HeaderTPType" sap:applicable-path="Activation_ac"><Parameter Name="uuid" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/></FunctionImport>
+				<FunctionImport Name="ZC_Gui_HeaderTPEdit" ReturnType="ZGUI_TEST1_SRV.ZC_Gui_HeaderTPType" EntitySet="ZC_Gui_HeaderTP" m:HttpMethod="POST"
+					sap:action-for="ZGUI_TEST1_SRV.ZC_Gui_HeaderTPType" sap:applicable-path="Edit_ac"><Parameter Name="uuid" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="PreserveChanges" Type="Edm.Boolean" Mode="In" Nullable="true"/></FunctionImport>
+				<FunctionImport Name="ZC_Gui_HeaderTPPreparation" ReturnType="ZGUI_TEST1_SRV.ZC_Gui_HeaderTPType" EntitySet="ZC_Gui_HeaderTP"
+					m:HttpMethod="POST" sap:action-for="ZGUI_TEST1_SRV.ZC_Gui_HeaderTPType" sap:applicable-path="Preparation_ac"><Parameter Name="uuid" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/></FunctionImport>
+				<FunctionImport Name="ZC_Gui_HeaderTPValidation" ReturnType="ZGUI_TEST1_SRV.ValidationFunctionResult" m:HttpMethod="GET"
+					sap:action-for="ZGUI_TEST1_SRV.ZC_Gui_HeaderTPType" sap:applicable-path="Validation_ac"><Parameter Name="uuid" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/></FunctionImport>
+				<FunctionImport Name="ZC_Gui_ItemTPPreparation" ReturnType="ZGUI_TEST1_SRV.ZC_Gui_ItemTPType" EntitySet="ZC_Gui_ItemTP" m:HttpMethod="POST"
+					sap:action-for="ZGUI_TEST1_SRV.ZC_Gui_ItemTPType" sap:applicable-path="Preparation_ac"><Parameter Name="uuid" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/></FunctionImport>
+				<FunctionImport Name="ZC_Gui_ItemTPValidation" ReturnType="ZGUI_TEST1_SRV.ValidationFunctionResult" m:HttpMethod="GET"
+					sap:action-for="ZGUI_TEST1_SRV.ZC_Gui_ItemTPType" sap:applicable-path="Validation_ac"><Parameter Name="uuid" Type="Edm.Guid" Mode="In"/><Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In"/><Parameter Name="SideEffectsQualifier" Type="Edm.String" Mode="In" Nullable="true"/></FunctionImport>
+			</EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZGUI_TEST1_SRV.ZGUI_TEST1_SRV_Entities/ZC_Gui_HeaderTP">
+				<Annotation Term="Common.DraftRoot">
+					<Record><PropertyValue Property="ActivationAction" String="ZGUI_TEST1_SRV.ZGUI_TEST1_SRV_Entities/ZC_Gui_HeaderTPActivation"/><PropertyValue Property="EditAction" String="ZGUI_TEST1_SRV.ZGUI_TEST1_SRV_Entities/ZC_Gui_HeaderTPEdit"/><PropertyValue Property="PreparationAction" String="ZGUI_TEST1_SRV.ZGUI_TEST1_SRV_Entities/ZC_Gui_HeaderTPPreparation"/><PropertyValue Property="ValidationFunction" String="ZGUI_TEST1_SRV.ZGUI_TEST1_SRV_Entities/ZC_Gui_HeaderTPValidation"/></Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZGUI_TEST1_SRV.ZGUI_TEST1_SRV_Entities/ZC_Gui_ItemTP">
+				<Annotation Term="Common.DraftNode">
+					<Record><PropertyValue Property="PreparationAction" String="ZGUI_TEST1_SRV.ZGUI_TEST1_SRV_Entities/ZC_Gui_ItemTPPreparation"/><PropertyValue Property="ValidationFunction" String="ZGUI_TEST1_SRV.ZGUI_TEST1_SRV_Entities/ZC_Gui_ItemTPValidation"/></Record>
+				</Annotation>
+				<Annotation Term="Common.DraftActivationVia">
+					<Collection>
+						<String>ZGUI_TEST1_SRV.ZGUI_TEST1_SRV_Entities/ZC_Gui_HeaderTP</String>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZGUI_TEST1_SRV.ZC_Gui_HeaderTPType">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>document</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZGUI_TEST1_SRV.ZC_Gui_ItemTPType">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>item</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZGUI_TEST1_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZGUI_TEST1_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

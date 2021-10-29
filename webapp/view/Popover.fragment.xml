@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Popover showHeader="false" placement="VerticalPreferredTop" contentMinWidth="10rem" contentHeight="7rem">
+		<FlexBox alignItems="Center" justifyContent="Start" width="10rem" height="5rem" class="sapUiTinyMargin">
+			<VBox>
+				<Text text="Discard this draft?"/>
+				<Button text="Discard" press="onDiscard" type="Default" width="10rem"/>
+			</VBox>
+		</FlexBox>
+	</Popover>
+</core:FragmentDefinition>
